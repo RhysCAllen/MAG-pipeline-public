@@ -608,16 +608,16 @@ If rieb=true, your outs file will always be empty.
 
 # Module 2: Visualizing Read Quality with FastQC and MultiQC.
 
-Environment needed:  
+Create conda environment for multiQC:
+``` {bash eval=FALSE}
 conda create -n qc -c bioconda multiqc  
 conda activate qc  
 conda install -c bioconda fastqc=0.11.9  
-
+```
 
 Running fastQC on the peat metagenome (4GB F and 4GB R) can take up to 30 min.
 
 ``` {bash eval=FALSE}
-
 # switch to qc env:
 conda activate qc
 
@@ -633,7 +633,6 @@ done
 # run multiqc on all fastqc output files
 cd 00_fastqc
 multiqc .
-
 ```
 
 The multiqc .html report can be viewed in R Studio.
