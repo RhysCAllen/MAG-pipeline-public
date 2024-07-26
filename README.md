@@ -1,6 +1,6 @@
 # MAG-pipeline-public
 
-This public repo summarizes the creation and analysis of metagenome-assembled genomes from shotgun sequence of peat bog samples. 
+This public repo summarizes the creation and analysis of metagenome-assembled genomes from shotgun sequence of three peat bog samples. 
 
 One method to learn to analyze metagenomic sequence is to reproduce published analyses. This public repo is a work-in-progress. It is an example of the work I would like to do professionally, and of my current skill level with MAGs. 
 
