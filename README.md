@@ -7,6 +7,7 @@ One method to learn to analyze shotgun metagenomic sequence is to reproduce publ
 In the interest of space, the DNA sequence input and output files are not duplicated in this public repo, but can be made available upon request.
 
 Files:
-1) Lab report, summarizing key findings at various checkpoints in the MAG pipeline.  
-2) Utility files, including pipeline method .md and conda environment .yml files.  
-3) Output files from pipeline tools such as FastQC, Krona, Sourmash, CheckM, and anvi'o.  
+1) Lab report, summarizing key findings at various checkpoints in the MAG pipeline.
+2) Pipeline .md files describing how MAGs were generated and analyzed. 
+3) Utility files, including conda environment .yml files.  
+4) Output files from pipeline tools such as FastQC, Krona, Sourmash, CheckM, and anvi'o.  
