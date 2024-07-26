@@ -22,8 +22,10 @@ MODULE 2: Visualizing Read Quality with FastQC
  As expected, sequence quality of qualtrimmed was of good quality across all metrics, 
  whereas quality of removed sequence was lower and sometimes poor. 
 
- see MAG-pipeline-public/output-files/20120700-P#M_multiqc_report.html file. 
-![fastqc_overrepresented_sequencesi_plot](https://github.com/user-attachments/assets/2314036b-6734-4c5a-a3ef-2d2686b01093)
+ see MAG-pipeline-public/output-files/20120700-P#M_multiqc_report.html file.  
+ <br>
+ <br>
+ <img src = "https://github.com/user-attachments/assets/2314036b-6734-4c5a-a3ef-2d2686b01093" width=400 align=center alt="" title="fastqc overrepresented sequences plot"/>
 
 
  
