@@ -1000,7 +1000,7 @@ spades.py -1 SRR*490_1_qualtrimmed.fastq -2 SRR*490_2_qualtrimmed.fastq -s SRR*4
 
 Scaffolds consist of contigs and gaps, mapped to a continuous predicted genome ref seq  
 
-N50: length of the contig halfway through a list of contigs sorted by size (N50 = 75kb)  
+N50: median length of contigs (N50 = 75kb). i.e. half of the contigs are longer than 75kb; the other half are shorter. 
 L50: the number of the contig halfway through a list of contigs sorted by size (the 75kb contig is the third contig in the list, so L50 = 3).  
 U50: Same as N50, but only unique contigs are counted (those that are entirely overlapped by other contigs are not counted; the red contigs in this fig).   
 https://pubmed.ncbi.nlm.nih.gov/28418726/#&gid=article-figures&pid=fig-2-uid-1  
