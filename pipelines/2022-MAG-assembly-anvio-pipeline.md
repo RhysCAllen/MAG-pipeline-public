@@ -411,10 +411,10 @@ http://seqanswers.com/forums/showthread.php?t=58296
 While capturing singletons for additional binning data doesn't make much of a difference, it's pretty easy to keep track of, and there's no real reason to throw away this data. 
 
 Required Tools and conda channel for install:  
-  -sourmash  
-  -bioconda  
-  -bbtools  
-  -agbiome  
+&emsp;-sourmash  
+&emsp;-bioconda  
+&emsp;-bbtools  
+&emsp;-agbiome  
 
 BBtools help and links:
 https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbduk-guide/  
@@ -608,10 +608,10 @@ If rieb=true, your outs file will always be empty.
 
 # Module 2: Visualizing Read Quality with FastQC and MultiQC.
 
-Environments needed:
-conda create -n qc -c bioconda multiqc
-conda activate qc
-conda install -c bioconda fastqc=0.11.9 
+Environment needed:  
+conda create -n qc -c bioconda multiqc  
+conda activate qc  
+conda install -c bioconda fastqc=0.11.9  
 
 
 Running fastQC on the peat metagenome (4GB F and 4GB R) can take up to 30 min.
