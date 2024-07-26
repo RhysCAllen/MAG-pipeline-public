@@ -4,7 +4,7 @@ This public repo summarizes the creation and analysis of metagenome-assembled ge
 
 One method to learn to analyze shotgun metagenomic sequence is to reproduce published analyses. This public repo is a work-in-progress. It is an example of the work I would like to do professionally, and my current level of ability and understanding of creating and working with MAGs. 
 
-In the interest of space, the DNA sequence input and output files are not duplicated in this public repo, but can be made available upon request.
+In the interest of space, the DNA sequence files are not duplicated in this public repo, but can be made available upon request.
 
 Files:
 1) Lab report, summarizing key findings at various checkpoints in the MAG pipeline.
