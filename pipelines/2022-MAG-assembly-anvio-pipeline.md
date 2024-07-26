@@ -26,7 +26,7 @@ The following additional files can be used to aid installation of software envir
 &emsp;-sourmash_x-platform_env.yml   
 &emsp;-vm-instance-GCE-protocol.txt  
 
-Previous versions of this pipeline (MAG-bvcn-pipeline-bbtools.md; MAG-bvcn-pipeline-kraken2.md) include detailed information on the following. The previous pipelines needed significant RAM (>75 GB RAM) for even a few libraries.  The analysis in this pipeline can be done on a standard desktop (8 GB RAM). 
+Previous versions of this pipeline (MAG-bvcn-pipeline-bbtools.md; MAG-bvcn-pipeline-kraken2.md) include detailed information on the following. The previous pipelines needed significant RAM (>75 GB RAM) for even a few libraries.  The analysis in this pipeline can be done on a standard desktop (8 GB RAM).  
 &emsp;-Fastq-dump  
 &emsp;-Trimmomatic  
 &emsp;-Bowtie2  
