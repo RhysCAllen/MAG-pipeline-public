@@ -1,29 +1,32 @@
 # Lab report
 
-Three libraries representing technical replicates of a peat bog were co-assembled and binned. 
-
-MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools  
-MODULE 2: Visualizing Read Quality with FastQC  
-MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk  
-MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts  
-MODULE 5: Genome (SPAdes) and Metagenome (Megahit) Assembly  
-MODULE 6: Read Mapping and Alignments using BBWrap  
-MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool  
-MODULE 8: Bin Evaluation with CheckM  
-MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o  
+Three libraries representing technical replicates of a peat bog sample were co-assembled and binned. 
 
 # Summary
 
-Three technical replicates (2010, 2011, 2012) of a peat bog fen sample were chosen from a previously published study. Sequence quality and length (read length, insert size, number of reads). Singletons were retained from quality trimming to maximize data for co-assembly.  
+Three technical replicates (2010, 2011, 2012) of a peat bog fen sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size 350 bp quality and length (read length, insert size, MB of data, number of reads, x% retained afte qualtrimming, including singletons).  Classification of unassembled reads by sourmash showed 91% unclassified, 9% included Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). Assembly using this tool showed best results with K55, showing N50 of 75kb and L50 of 3. Total assembled x million reads, or y% of qualtrimmed reads. Read alignments to contigs showed average depth of 1 read, 10% error and some other read alignment stat; including x% of of normalized reads aligned. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 6 bins, including 4 low-quality bins. CheckM says this. Manually refining bins in anvi'o led to xyz. Classification of bins in anvi'o indicate xyz, as bins had duplication of single copy markers A and B. Additional refinement steps include single-library assembly for comparison and curation. Bins most likely include Genus species and Genus species, which is consistent with published analysis of these libraries. 
 
-# Details per module: 
+# Pipeline modules
 
-MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools  
+    MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools  
+    MODULE 2: Visualizing Read Quality with FastQC  
+    MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk  
+    MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts  
+    MODULE 5: Contig assembly with MetaHit
+    MODULE 6: Read Mapping and Alignments using BBWrap  
+    MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool  
+    MODULE 8: Bin Evaluation with CheckM  
+    MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o  
+
+
+# Results per module: 
+
+###### MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools  
 Illumina adapters trimmed, as well as sequence with low entropy=0.95 (a proxy for low quality) and minimum ave quality=8.  
 Spike-ins, and cleaning by optical cell tile (Illumina) was not done.  
 Removed sequences were diverted to a separate file rather than deleted.  
 
-MODULE 2: Visualizing Read Quality with FastQC  
+###### MODULE 2: Visualizing Read Quality with FastQC  
  I compared sequence that was qualtrimmed, vs seq that was removed by qualtrimming step above.  
  As expected, sequence quality of qualtrimmed was of good quality across all metrics, 
  whereas quality of removed sequence was lower and sometimes poor.  
