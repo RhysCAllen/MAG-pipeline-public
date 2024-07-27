@@ -1,4 +1,4 @@
-# Lab report summary
+# Lab report
 
 Three libraries representing technical replicates of a peat bog were co-assembled and binned. 
 
@@ -12,8 +12,9 @@ MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin,
 MODULE 8: Bin Evaluation with CheckM  
 MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o  
 
-# Summary:
+# Summary
 
+Three technical replicates (2010, 2011, 2012) of a peat bog fen sample were chosen from a previously published study. Sequence quality and length (read length, insert size, number of reads). Singletons were retained from quality trimming to maximize data for co-assembly.  
 
 # Details per module: 
 
