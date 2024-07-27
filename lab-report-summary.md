@@ -41,11 +41,11 @@ Some of the sequences show higher-than-average GC content, which is typical of c
 
 (28.2 million reads before qc trimming; 24.2 million reads @ 100 bp after qc trimming). 
  
-MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk
+###### MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk
 Table of classifications provided by sourmash by kmer comparison to GBDB database.
 see file MAG-pipeline-public/output-files/peat_taxonomy_summary.csv
 
-MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts
+###### MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts
 
 Unassembled reads are 91% unclassified at this point (smaller plot, right). 
 The remaining 9% include Acidobacteria and Actinobacteria (large plot, left). Sourmash detected strains that were characterized in the 2018 study ("Palsa" strains), which is nice confirmation that the sourmash database used is up-to-date, and the pipeline is correctly identifying some of the reads in these samples. 
@@ -55,7 +55,7 @@ The remaining 9% include Acidobacteria and Actinobacteria (large plot, left). So
  <img src = "https://github.com/user-attachments/assets/e5d700e2-f4c5-4118-a8a4-d28c129cd3fd" width=100 align=center alt="" title="krona plot showing 91% of unassembled reads are unclassified"/>
 
 
-MODULE 5: Genome (SPAdes) and Metagenome (Megahit) Assembly
+###### MODULE 5: Genome (SPAdes) and Metagenome (Megahit) Assembly
 14.1 million readds * paired = 28.2 million reads *100 bp = 2820 million base pairs or 2.8 Billion base pairs.
 
 Then for the K33 assembly, we had sum_length about 308 million. Sooooooooo that's a pretty small percentage, About 11%. Cool!
@@ -89,7 +89,7 @@ I'll pick k57 since I read somewhere that the best assemblies are between 50 and
 #contigs   #bp          #N50  L50   
 8605    25065139    1139    3604
 
-MODULE 6: Read Mapping and Alignments using BBWrap
+###### MODULE 6: Read Mapping and Alignments using BBWrap
 
 But this time, it attempted to align 28.2 million reads, most of which were detected as paired reads (14.2 million pairs). 
 But, only 13% of read pairs aligned concordantly (with expected FR orientation and distance between reads that would occur from Illumina paired-end sequence library protocol). 
@@ -101,7 +101,7 @@ If I recall correctly, average read depth was one read, which makes sense consid
 As expected the coverage % per contig is very high (98-100%). 
 Percent reads mapped between 3% and 20%. I think that's pretty normal since the ref seq is de-novo metagenomic assembly from low seq depth and high diversity. 
 
-MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool
+###### MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool
 
 Binning was performed using MaxBin2, MetaBAT2, BinSanity. Bins were optimized with DAS tool. Concoct, a fourth binner, was unavailable on the OS used for this analysis. 
 MaxBin2: Total of 6 bins; themost complete were bin 2 (58%) and bin 5 (59%).  
@@ -112,10 +112,10 @@ DASTool performs bin optimization and dereplication, aided by functional annotia
 
 DAS Tool provided 6 bins, four of which were low-completion. 
 
-MODULE 8: Bin Evaluation with CheckM
+###### MODULE 8: Bin Evaluation with CheckM
 
 
-MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
+###### MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
 
 6201 item(s) that were in the database, but were not in the input file, will not be described by any bin in the collection peatTechReps.
 think that just means that only some of  the contigs in the co-assembly ended up in bins, which is to be expected. But I wasn't sure about the "splits" name, so I'm putting this info here in case I need to refer to it laterrr.
