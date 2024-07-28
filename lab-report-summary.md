@@ -1,10 +1,10 @@
 # Lab report
 
-The purpose of this report is to test and benchmark the MAG pipeline in this repo. The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, the Ricardo lab, and SunBeam (Breitling Lab). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples; and 2) statistics to act as positive and negative controls at each checkpoint, to help me develop a feel for QC and troubleshooting MAGs. 
+The purpose of this report is to test and benchmark the MAG pipeline in this repo. The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, MAVERIC (Sullivan lab, OSU) and the <a href="https://sunbeam.readthedocs.io/en/stable/">SunBeam pipeline</a> (Bittinger lab, U Penn). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples; and 2) statistics to act as positive and negative controls at each checkpoint, to help me develop a feel for QC and troubleshooting MAGs. 
 
 # Summary
 
-Three technical replicates (2010, 2011, 2012) of a peat bog fen sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming, 86% or 24.2 million reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). MagaHit co-assembly showed best results with K55, with N50 of 75kb and L50 of 3. Total assembled x million reads, or y% of qualtrimmed reads. Read alignments to contigs showed average depth of 1 read, 10% error and some other read alignment stat; including x% of of normalized reads aligned. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 6 bins, including 4 low-quality bins. CheckM says this. Manually refining bins in anvi'o led to xyz. Classification of bins in anvi'o indicate xyz, as bins had duplication of single copy markers A and B. Additional refinement steps include single-library assembly for comparison and curation. Bins most likely include Genus species and Genus species, which is consistent with published analysis of these libraries. 
+Three technical replicates (2010, 2011, 2012) of a peat bog fen sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 paired-end million reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). MagaHit co-assembly showed best results with kmer length=55, selected from a range of K21-K99, with N50 of 75kb and L50 of 3. Total assembled x million reads, or y% of qualtrimmed reads. Read alignments to contigs using BBWrap showed average depth of 1 read, 10% error and some other read alignment stat, and x% of of normalized reads aligned. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 6 bins, including 4 low-quality bins from DAS Tool. CheckM says this. Manually refining bins in anvi'o led to xyz. Classification of bins in anvi'o indicate xyz, as bins had duplication of single copy markers A and B. Current Bins most likely include Genus species and Genus species, which is consistent with published analysis of these libraries. Further refinement of these bins includes using single-library assembly with metaSPAdes, instead of co-assembly of these three replicates. 
 
 
 
@@ -41,12 +41,13 @@ Some of the sequences show higher-than-average GC content, which is typical of c
 
 (28.2 million reads before qc trimming; 24.2 million reads @ 100 bp after qc trimming). 
  
-###### MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk
-Table of classifications provided by sourmash by kmer comparison to GBDB database.
+###### MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBDuk
+Table of classifications provided by sourmash by kmer comparison to GenBank's representative genomes, k31, LCA database.
 see file MAG-pipeline-public/output-files/peat_taxonomy_summary.csv
 
 ###### MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts
 
+Classified reads were placed into taxonomy in Krona using GTDB taxonomy file.
 Unassembled reads are 91% unclassified at this point (smaller plot, right). 
 The remaining 9% include Acidobacteria and Actinobacteria (large plot, left). Sourmash detected strains that were characterized in the 2018 study ("Palsa" strains), which is nice confirmation that the sourmash database used is up-to-date, and the pipeline is correctly identifying some of the reads in these samples. 
 
@@ -60,19 +61,21 @@ The remaining 9% include Acidobacteria and Actinobacteria (large plot, left). So
 
 Then for the K33 assembly, we had sum_length about 308 million. Sooooooooo that's a pretty small percentage, About 11%. Cool!
 
-f there's a sum_length assembly of 308 million bp, and 100 bp per read, then there should be about3 million reads aligned.
-But it said only 420, 000 reads aligned. 
 
 
-Num seqs is the number of contigs
-K21:
-num_seqs 2.4 million, sum_length = 335 million, max_length = 8kb
-min_length = 22. N50; L50 = 500,000 bp; contig #215
-K33:
-num_seq = 1 million, sum_length = 306 million, min_length 34,
-ave_length 300, max_length 50 kb. N50, L50 = 250,000bp; contig #322.
-num_seq = 500,000; sum_length = 250 million, min_length 56, ave_length = 430, max_length = 500 kb. 
-N50, L50 = 120,000bp; contig #460
+SPAdes assembly of one library:
+
+<img src="https://github.com/user-attachments/assets/a1d3f37a-23f2-4652-94f3-197209a00833" width=200 align=center title="metaSPAdes assembly of single paired-end library with singletons, K33"/>
+
+
+Insert table summarizing metaSPAdes co-assembly stats here. 
+
+<img src="https://github.com/user-attachments/assets/67ba1d91-c11c-44a2-ad1a-8245c8f562db" width=200 align=center title="Bowtie2 alignment of metaSPAdes assembly, K33" />
+
+Using Bowtie2, there is a 34% alignment rate of my metaSPAdes K33 co-assembly. 14.6 million reads were aligned. 
+
+<img src="https://github.com/user-attachments/assets/cd508e3f-282b-4068-aeae-6a2b581069cb" width=200 align=center title="BBWrap alignment of metaSPAdes assembly, K33" />
+Using BBMap, 15 M alignments to metaSPAdes K33 co-assembly.
 
 The BBnorm output also indicated an average kmer depth of 4.5, with st dev = 35. Median read depth of 3
 Error correction using metaSPAdes; read depth normalization using BBNorm (tadpole), co-assembly of the three libraries with MEGAHIT, and calculation of assembly statistics. 
@@ -97,6 +100,12 @@ But, only 13% of read pairs aligned concordantly (with expected FR orientation a
 Used BBMap (via BBwrap) to index contigs, align reads, and index sorted aligned contigs. 
 It looks like I deleted these files too, but StOut reported acceptable error rate ( <10%) for ave library read lengths (~ 100bp).
 If I recall correctly, average read depth was one read, which makes sense considering the high genetic diversity and low sequencing depth of these libraries. 
+
+When I used Bowtie2 for read aligments, I got the same stats as for the published pipleine from Maverick lab: 
+<img src="https://github.com/user-attachments/assets/5887c2a3-a433-42ee-9089-1393abc393a1" size=150>
+
+Francisco lab reports xyz: my alignment shows xyz.
+
 
 As expected the coverage % per contig is very high (98-100%). 
 Percent reads mapped between 3% and 20%. I think that's pretty normal since the ref seq is de-novo metagenomic assembly from low seq depth and high diversity. 
