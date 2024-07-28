@@ -1,6 +1,6 @@
 # Lab report
 
-The purpose of this report is to test and benchmark the MAG pipeline in this repo. The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, MAVERIC (Sullivan lab, OSU) and the <a href="https://sunbeam.readthedocs.io/en/stable/">SunBeam pipeline</a> (Bittinger lab, U Penn). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples; and 2) statistics to act as positive and negative controls at each checkpoint, to help me develop a feel for QC and troubleshooting MAGs. 
+The purpose of this report is to test and benchmark the MAG pipeline in this repo. The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, MAVERIC (Sullivan lab, OSU) and the <a href="https://sunbeam.readthedocs.io/en/stable/">SunBeam pipeline</a> (Bittinger lab, U Penn). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples, and 2) statistics at each checkpoint, to help me develop a feel for QC and troubleshooting.
 
 # Summary
 
@@ -10,12 +10,12 @@ Three technical replicates (2010, 2011, 2012) of a peat bog fen sample were chos
 
 # Pipeline modules
 
-    MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools  
+    MODULE 1: Read Trimming and Quality Filtering using BBtools  
     MODULE 2: Visualizing Read Quality with FastQC  
     MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk  
-    MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts  
-    MODULE 5: Contig assembly with MetaHit
-    MODULE 6: Read Mapping and Alignments using BBWrap  
+    MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona
+    MODULE 5: Contig co-assembly with MetaHit and metaSPAdes
+    MODULE 6: Read Mapping and Alignments using BBWrap and Bowtie2
     MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool  
     MODULE 8: Bin Evaluation with CheckM  
     MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o  
@@ -57,9 +57,6 @@ The remaining 9% include Acidobacteria and Actinobacteria (large plot, left). So
 
 
 ###### MODULE 5: Genome (SPAdes) and Metagenome (Megahit) Assembly
-14.1 million readds * paired = 28.2 million reads *100 bp = 2820 million base pairs or 2.8 Billion base pairs.
-
-Then for the K33 assembly, we had sum_length about 308 million. Sooooooooo that's a pretty small percentage, About 11%. Cool!
 
 
 
@@ -70,11 +67,11 @@ SPAdes assembly of one library:
 
 Insert table summarizing metaSPAdes co-assembly stats here. 
 
-<img src="https://github.com/user-attachments/assets/67ba1d91-c11c-44a2-ad1a-8245c8f562db" width=200 align=center title="Bowtie2 alignment of metaSPAdes assembly, K33" />
+<img src="https://github.com/user-attachments/assets/67ba1d91-c11c-44a2-ad1a-8245c8f562db" width=200 align=center title="Bowtie2 alignment of metaSPAdes co-assembly, K33" />
 
 Using Bowtie2, there is a 34% alignment rate of my metaSPAdes K33 co-assembly. 14.6 million reads were aligned. 
 
-<img src="https://github.com/user-attachments/assets/cd508e3f-282b-4068-aeae-6a2b581069cb" width=200 align=center title="BBWrap alignment of metaSPAdes assembly, K33" />
+<img src="https://github.com/user-attachments/assets/cd508e3f-282b-4068-aeae-6a2b581069cb" width=200 align=center title="BBWrap alignment of metaSPAdes co-assembly, K33" />
 Using BBMap, 15 M alignments to metaSPAdes K33 co-assembly.
 
 The BBnorm output also indicated an average kmer depth of 4.5, with st dev = 35. Median read depth of 3
