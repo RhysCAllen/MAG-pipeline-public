@@ -1,6 +1,6 @@
 # Lab report
 
-The purpose of this report is to test and benchmark the MAG pipeline in this repo. The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, the Ricardo lab, and SunBeam (Breitling Lab). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples; and 2) statistics to act as positive and negative controls at each checkpoint, to help me develop a feel for QC and troubleshooting. 
+The purpose of this report is to test and benchmark the MAG pipeline in this repo. The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, the Ricardo lab, and SunBeam (Breitling Lab). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples; and 2) statistics to act as positive and negative controls at each checkpoint, to help me develop a feel for QC and troubleshooting MAGs. 
 
 # Summary
 
