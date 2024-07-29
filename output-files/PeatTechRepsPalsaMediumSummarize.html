@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Anvi'o">
+    <base target="_blank">
+
+    <title>Anvi'o: peat merged profiles</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href=".html/css/bootstrap.css" rel="stylesheet">
+    <link href=".html/bootstrap-sortable/Contents/bootstrap-sortable.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href=".html/css/anvio.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://merenlab.org/projects/anvio">Anvi'o Project Page</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/meren/anvio">Anvi'o Repository</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/meren/anvio/issues">Report an Issue</a>
+                    </li>
+                    <li>
+                        <a href="http://merenlab.org/people">Contact</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/meren/anvio/releases">Anvi'o version: 7.1</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <header class="image-bg-fluid-height">
+        <div class="header-summary-div">
+            <div style="width: 200px;">
+                <img class="img-responsive img-left"src=".html/pics/logo.png" alt="">
+            </div>
+            <div class="header-text">
+                <b>A very quick overlook</b> at bins stored in the "<b>PeatTechReps</b>" collection. <br /><br /><small><i>For the final summary of your project, do not forget to run anvi-summarize without the '--quick' flag</i></small>.
+            </div>
+        </div>
+    </header>
+
+
+    <!-- BINS PANEL -->
+    <section>
+        <div class="container">
+            <div class="panel panel-info" id="bins_panel">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><a data-toggle="collapse" data-parent="#bins_panel" href="#collapse-bins">Summary (4)</a></h1>
+                </div>
+
+                <div id="collapse-bins" class="panel-collapse">
+                    <div class="panel-body">
+                        <p style="color: #AAAAAA; padding: 20px;">Summary of each bin (note: this is a "quick" overlook, and results in this table will be incomplete).</p>
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <table class="table table-striped sortable" id="tblGrid_bin">
+                                    <thead id="tblHead_bin">
+                                        <tr>
+                                            <th data-defaultsort='disabled' class="text-center"></th>
+                                            <th>Bin</th>
+                                            <th class="text-center">Source</th>
+
+                                            
+                                            <th class="text-center" data-defaultsort='disabled'>Taxonomy</th>
+                                            
+
+                                            <th class="text-center">Total Size</th>
+                                            <th class="text-center">Num Contigs</th>
+                                            <th class="text-center">GC Content</th>
+                                            <th class="text-center">Compl.</th>
+                                            <th class="text-center">Red.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td style="vertical-align: middle; width: 18px;"><div style="width:18px; height: 18px; background-color: #212121; fload:left; border-radius: 3px;">&nbsp;</div></td>
+                                            <td style="vertical-align: middle;">PalsaMedium_Bin_00001</td>
+                                            <td class="text-center"  style="vertical-align: middle; font-style: italic;">UNKNOWN</td>
+
+                                            
+                                            <td class="text-center">N/A</td>
+                                            
+
+                                            <td class="text-center" style="vertical-align: middle;" data-value="5930402">5.93 Mb</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="304">304</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="57.918814621108794">57.92%</td>
+                                            
+                                            <td class="text-center" data-value="97.1830985915493"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modCompleteness_PalsaMedium_Bin_00001">97.18%</button></td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="1.41">1.41%</td>
+                                            
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="vertical-align: middle; width: 18px;"><div style="width:18px; height: 18px; background-color: #212121; fload:left; border-radius: 3px;">&nbsp;</div></td>
+                                            <td style="vertical-align: middle;">PalsaMedium_Bin_00002</td>
+                                            <td class="text-center"  style="vertical-align: middle; font-style: italic;">UNKNOWN</td>
+
+                                            
+                                            <td class="text-center">N/A</td>
+                                            
+
+                                            <td class="text-center" style="vertical-align: middle;" data-value="2709126">2.71 Mb</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="534">534</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="67.88437570404501">67.88%</td>
+                                            
+                                            <td class="text-center" data-value="95.77464788732394"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modCompleteness_PalsaMedium_Bin_00002">95.77%</button></td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="7.04">7.04%</td>
+                                            
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="vertical-align: middle; width: 18px;"><div style="width:18px; height: 18px; background-color: #212121; fload:left; border-radius: 3px;">&nbsp;</div></td>
+                                            <td style="vertical-align: middle;">PalsaMedium_Bin_00003</td>
+                                            <td class="text-center"  style="vertical-align: middle; font-style: italic;">UNKNOWN</td>
+
+                                            
+                                            <td class="text-center">N/A</td>
+                                            
+
+                                            <td class="text-center" style="vertical-align: middle;" data-value="3465077">3.47 Mb</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="664">664</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="56.535642872833556">56.54%</td>
+                                            
+                                            <td class="text-center" data-value="81.69014084507042"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modCompleteness_PalsaMedium_Bin_00003">81.69%</button></td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="7.04">7.04%</td>
+                                            
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="vertical-align: middle; width: 18px;"><div style="width:18px; height: 18px; background-color: #212121; fload:left; border-radius: 3px;">&nbsp;</div></td>
+                                            <td style="vertical-align: middle;">PalsaMedium_Bin_00004</td>
+                                            <td class="text-center"  style="vertical-align: middle; font-style: italic;">UNKNOWN</td>
+
+                                            
+                                            <td class="text-center">N/A</td>
+                                            
+
+                                            <td class="text-center" style="vertical-align: middle;" data-value="2479245">2.48 Mb</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="911">911</td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="58.68324573330519">58.68%</td>
+                                            
+                                            <td class="text-center" data-value="78.87323943661971"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modCompleteness_PalsaMedium_Bin_00004">78.87%</button></td>
+                                            <td class="text-center" style="vertical-align: middle;" data-value="5.63">5.63%</td>
+                                            
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <!-- TAXONOMY FOR GROUP -->
+    <div class="modal fade" id="modTaxonomy_PalsaMedium_Bin_00001" role="dialog" aria-labelledby="modFiles" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Taxonomy calls for PalsaMedium Bin 00001</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_tax_PalsaMedium_Bin_00001">
+                <thead id="tblHead_tax_PalsaMedium_Bin_00001">
+                  <tr>
+                    <th>Taxon call</th>
+                    <th>Relative occurrence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">Taxonomy calls for splits in your 304 contigs
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETENESS INFO FOR GROUP -->
+    
+    <div class="modal fade" id="modCompleteness_PalsaMedium_Bin_00001" role="dialog" aria-labelledby="modCompleteness" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Completeness estimations for "PalsaMedium Bin 00001"</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_completeness_PalsaMedium_Bin_00001">
+                <thead id="tblHead_completeness_PalsaMedium_Bin_00001">
+                  <tr>
+                    <th>Source</th>
+                    <th>SCG domain</th>
+                    <th class="text-center">Percent completion</th>
+                    <th class="text-center">Percent redundancy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      
+                      <tr>
+                        <td>Bacteria 71</td>
+                        <td>bacteria</td>
+                        <td class="text-center">97.18%</td>
+                        <td class="text-center">1.41%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Archaea 76</td>
+                        <td>archaea</td>
+                        <td class="text-center">40.79%</td>
+                        <td class="text-center">2.63%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Protista 83</td>
+                        <td>eukarya</td>
+                        <td class="text-center">4.82%</td>
+                        <td class="text-center">4.82%</td>
+                      </tr>
+                      
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">See the documentation for more information on single-copy gene data.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    <!-- TAXONOMY FOR GROUP -->
+    <div class="modal fade" id="modTaxonomy_PalsaMedium_Bin_00002" role="dialog" aria-labelledby="modFiles" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Taxonomy calls for PalsaMedium Bin 00002</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_tax_PalsaMedium_Bin_00002">
+                <thead id="tblHead_tax_PalsaMedium_Bin_00002">
+                  <tr>
+                    <th>Taxon call</th>
+                    <th>Relative occurrence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">Taxonomy calls for splits in your 534 contigs
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETENESS INFO FOR GROUP -->
+    
+    <div class="modal fade" id="modCompleteness_PalsaMedium_Bin_00002" role="dialog" aria-labelledby="modCompleteness" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Completeness estimations for "PalsaMedium Bin 00002"</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_completeness_PalsaMedium_Bin_00002">
+                <thead id="tblHead_completeness_PalsaMedium_Bin_00002">
+                  <tr>
+                    <th>Source</th>
+                    <th>SCG domain</th>
+                    <th class="text-center">Percent completion</th>
+                    <th class="text-center">Percent redundancy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      
+                      <tr>
+                        <td>Bacteria 71</td>
+                        <td>bacteria</td>
+                        <td class="text-center">95.77%</td>
+                        <td class="text-center">7.04%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Archaea 76</td>
+                        <td>archaea</td>
+                        <td class="text-center">42.11%</td>
+                        <td class="text-center">6.58%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Protista 83</td>
+                        <td>eukarya</td>
+                        <td class="text-center">3.61%</td>
+                        <td class="text-center">0.00%</td>
+                      </tr>
+                      
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">See the documentation for more information on single-copy gene data.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    <!-- TAXONOMY FOR GROUP -->
+    <div class="modal fade" id="modTaxonomy_PalsaMedium_Bin_00003" role="dialog" aria-labelledby="modFiles" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Taxonomy calls for PalsaMedium Bin 00003</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_tax_PalsaMedium_Bin_00003">
+                <thead id="tblHead_tax_PalsaMedium_Bin_00003">
+                  <tr>
+                    <th>Taxon call</th>
+                    <th>Relative occurrence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">Taxonomy calls for splits in your 664 contigs
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETENESS INFO FOR GROUP -->
+    
+    <div class="modal fade" id="modCompleteness_PalsaMedium_Bin_00003" role="dialog" aria-labelledby="modCompleteness" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Completeness estimations for "PalsaMedium Bin 00003"</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_completeness_PalsaMedium_Bin_00003">
+                <thead id="tblHead_completeness_PalsaMedium_Bin_00003">
+                  <tr>
+                    <th>Source</th>
+                    <th>SCG domain</th>
+                    <th class="text-center">Percent completion</th>
+                    <th class="text-center">Percent redundancy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      
+                      <tr>
+                        <td>Bacteria 71</td>
+                        <td>bacteria</td>
+                        <td class="text-center">81.69%</td>
+                        <td class="text-center">7.04%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Archaea 76</td>
+                        <td>archaea</td>
+                        <td class="text-center">35.53%</td>
+                        <td class="text-center">1.32%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Protista 83</td>
+                        <td>eukarya</td>
+                        <td class="text-center">4.82%</td>
+                        <td class="text-center">4.82%</td>
+                      </tr>
+                      
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">See the documentation for more information on single-copy gene data.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    <!-- TAXONOMY FOR GROUP -->
+    <div class="modal fade" id="modTaxonomy_PalsaMedium_Bin_00004" role="dialog" aria-labelledby="modFiles" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Taxonomy calls for PalsaMedium Bin 00004</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_tax_PalsaMedium_Bin_00004">
+                <thead id="tblHead_tax_PalsaMedium_Bin_00004">
+                  <tr>
+                    <th>Taxon call</th>
+                    <th>Relative occurrence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">Taxonomy calls for splits in your 911 contigs
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETENESS INFO FOR GROUP -->
+    
+    <div class="modal fade" id="modCompleteness_PalsaMedium_Bin_00004" role="dialog" aria-labelledby="modCompleteness" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Completeness estimations for "PalsaMedium Bin 00004"</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" id="tblGrid_completeness_PalsaMedium_Bin_00004">
+                <thead id="tblHead_completeness_PalsaMedium_Bin_00004">
+                  <tr>
+                    <th>Source</th>
+                    <th>SCG domain</th>
+                    <th class="text-center">Percent completion</th>
+                    <th class="text-center">Percent redundancy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      
+                      <tr>
+                        <td>Bacteria 71</td>
+                        <td>bacteria</td>
+                        <td class="text-center">78.87%</td>
+                        <td class="text-center">5.63%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Archaea 76</td>
+                        <td>archaea</td>
+                        <td class="text-center">34.21%</td>
+                        <td class="text-center">2.63%</td>
+                      </tr>
+                      
+                  
+                      
+                      <tr>
+                        <td>Protista 83</td>
+                        <td>eukarya</td>
+                        <td class="text-center">8.43%</td>
+                        <td class="text-center">1.20%</td>
+                      </tr>
+                      
+                  
+                </tbody>
+          </table>
+            <p class="section-paragraph"></p>
+          <p style="color: #AAAAAA; padding: 10px;">See the documentation for more information on single-copy gene data.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+
+
+    <div style="margin-bottom:200px"></div>
+
+    <!-- jQuery -->
+    <script src=".html/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src=".html/js/bootstrap.min.js"></script>
+
+    <!-- Table sorter, source: https://github.com/drvic10k/bootstrap-sortable -->
+    <script src=".html/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+
+    <!-- Activate tooltips... -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    });
+</script>
+</body>
+</html>
