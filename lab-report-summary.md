@@ -84,6 +84,7 @@ I visually examined the maximum contig sizes and number of contigs for a K21, K3
 Unfortunately looks like I did not save the assembly stats file. 
 It is recommended to view the deBruijn graphs of the assemblies; however, the recommended software for this has been deprecated since 2022 with no obvious alternatives. 
 
+MegaHIT made assemblies from K27 to K107. An article benchmarking co-assembly of marine seq libraries suggested K55 or so. 
 megahit assembly: 8605 contigs, total 25065139 bp, min 1000 bp, max 365382 bp, avg 2912 bp, N50 3604 bp
 I'll pick k57 since I read somewhere that the best assemblies are between 50 and 60 for metagenomes. 
 #contigs   #bp          #N50  L50   
@@ -109,16 +110,40 @@ Percent reads mapped between 3% and 20%. I think that's pretty normal since the 
 
 ###### MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool
 
+<img src="https://github.com/user-attachments/assets/490ef2dd-d4e6-4772-bbdf-31411ce88c8a" width=200 align=center title="My MetaBat bins from metaSPAdes K33 co-assembly" >
+
+
+<img src="https://github.com/user-attachments/assets/e50e9275-83ac-49b4-9c9f-8bc764287e39" width=200 align=center title="MAVERIC MetaBat bins from SPAdes assembly of single peat library" >
+
+
+<img src="https://github.com/user-attachments/assets/1a02e63a-84f7-4751-abf0-2a8f1509783a" width=200 align=center title="Second half of Maveric MetaBat bins" >
+
+So, it looks like the bins 1, 2, 5, and 7 in the pipeline output, (they all have the same #genomes, #markers, and # marker sets) got combined in my output into just three bins (3, 4, 5). 
+
+
 Binning was performed using MaxBin2, MetaBAT2, BinSanity. Bins were optimized with DAS tool. Concoct, a fourth binner, was unavailable on the OS used for this analysis. 
 MaxBin2: Total of 6 bins; themost complete were bin 2 (58%) and bin 5 (59%).  
 MetaBat produced 5 bins. 
 BinSanity: 5 refined bins, in addition to and handful of low-completion bins. 
 
+The BinSanity and MaxBin outputs both show an Acidobacteria bin with high completeness (83%) but significant contamination (51%). MetaBat's Acidobacteria bin shows lower completion (58%) with no contamination.
+
 DASTool performs bin optimization and dereplication, aided by functional annotiation using Prodigal, followed with diamond to look for marker (SGC) genes.
 
-DAS Tool provided 6 bins, four of which were low-completion. 
+DAS Tool provided 6 bins, four of which were low-completion. Maveric provided three DAS tool bins that met with minimum criteria (not shown). 
+
+<img src="https://github.com/user-attachments/assets/729c53fd-ed48-4a4f-ba41-122c104de120" width=200 align=center title="My DAStool output">
+
+
 
 ###### MODULE 8: Bin Evaluation with CheckM
+
+Comparing my CheckM output with the checkM from published assembly of a single library:
+
+<img src="https://github.com/user-attachments/assets/0939e3f0-41c2-44b4-82f2-6d50723e5e1c" width=200 align=center title="Maveric checkM for metaBat2 bins from single library">
+
+<img src="https://github.com/user-attachments/assets/ba43abc0-8ee0-4d38-8f32-47f1cbb02442" width=200 align=center title="My checkM for metabat bins co-assebly">
+
 
 
 ###### MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
