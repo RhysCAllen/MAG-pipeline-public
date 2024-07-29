@@ -151,6 +151,7 @@ Comparing my CheckM output with the checkM from published assembly of a single l
 6201 item(s) that were in the database, but were not in the input file, will not be described by any bin in the collection peatTechReps.
 think that just means that only some of  the contigs in the co-assembly ended up in bins, which is to be expected. But I wasn't sure about the "splits" name, so I'm putting this info here in case I need to refer to it laterrr.
 
+<img src="https://github.com/user-attachments/assets/7f96d69d-be4e-4a1a-a28f-4b867a9e6b08" width=300 align=center title="My anvio summary of peat co-assembly bins">
 
 
 
