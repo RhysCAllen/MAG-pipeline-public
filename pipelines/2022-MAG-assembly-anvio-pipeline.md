@@ -42,7 +42,6 @@ Previous versions of this pipeline (MAG-bvcn-pipeline-bbtools.md; MAG-bvcn-pipel
 https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html  
 Journal article link: https://www.ncbi.nlm.nih.gov/pubmed/30013118  
 Bioproject number link: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA386568  
-https://github.com/linsalrob/ComputationalGenomicsManual (additional pipeline resource)  
 
 ###### Conda/HPC:
 https://protocols.hostmicrobe.org/metagenomics-in-the-cloud  
@@ -55,6 +54,11 @@ https://conda.io/projects/conda/en/latest/user-guide/install/linux.html
 https://biovcnet.github.io/  
 https://github.com/biovcnet/biovcnet.github.io/wiki  
 https://github.com/biovcnet/biovcnet.github.io/wiki/TOPIC%3A-Metagenomics  
+
+###### Other Metagenome Tutorials  
+SunBeam, a SnakeMake for automating MAGs (Bittinger Lab, U Penn)  
+https://sunbeam.readthedocs.io/en/stable/
+
 
 # Contents:
     MODULE 0: Setting up VM, Github repo, Conda Environments, and Data Download with FasterQ-dump
@@ -69,7 +73,7 @@ https://github.com/biovcnet/biovcnet.github.io/wiki/TOPIC%3A-Metagenomics
     MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o and PathwayTools
     APPENDIX: X11-forwarding to use Pathway Tools
 
-##### Links:
+##### Tool Links:
 bbtools: https://jgi.doe.gov/data-and-tools/bbtools/  
 FastQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/  
 MultiQC: https://multiqc.info/   
