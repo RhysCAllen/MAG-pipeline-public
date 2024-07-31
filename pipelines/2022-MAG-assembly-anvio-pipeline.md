@@ -1,7 +1,7 @@
 # Peat Metagenome assembly pipeline 2022
 ###### Rhys Allen 2022
 
-The purpose of this file is to develop a pipeline for assembling prokaryote genomes from shotgun metagenomic sequence (MAGs). This pipeline uses from a Swedish arctic peat bog, <a href="https://www.nature.com/articles/s41586-018-0338-1">previously characterized</a> in BJ Woodcroft et al in 2018: "Genome-centric view of carbon processing in thawing permafrost.", Nature, 2018 Aug;560(7716):49-54.   
+The purpose of this file is to develop a pipeline for assembling prokaryote genomes from shotgun metagenomic sequence (MAGs). This pipeline uses sequence libraries collected from a Swedish arctic peat bog, <a href="https://www.nature.com/articles/s41586-018-0338-1">previously characterized</a> in BJ Woodcroft et al in 2018: "Genome-centric view of carbon processing in thawing permafrost.", Nature, 2018 Aug;560(7716):49-54.   
 
 The pipeline was developed primarily from two resources: <a href="https://biovcnet.github.io/">BVCN</a> and <a href="https://anvio.org/">anvi'o</a>, with additional pipeline info from <a href="https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html">MAVERIC</a> (the Sullivan lab; OSU). This is a work-in-progress that will undergo continuous updating with version control. 
 
