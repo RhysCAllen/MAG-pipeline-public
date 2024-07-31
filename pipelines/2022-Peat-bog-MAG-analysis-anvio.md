@@ -288,12 +288,12 @@ When you're done checking bins, re-run anvi-summarize on the curated profile:
 anvi-summarize -c peat-contigs.db -p peat-merged-profiles/PROFILE.db -C PeatTechReps -o CuratedSummary
 ```
 
-Conclusion: I was able to reduce the redundancy of 2 out of 4 bins. \m/  \m/
+Conclusion: I was able to reduce the redundancy of 2 out of 4 bins.
+
+<img src="https://github.com/user-attachments/assets/20cd14d1-bedb-4094-bae1-f5147e7b5fad" align=center width=800 title="Avi-summarize of DAS Tool bins after manual curation">
+
 
 <br>
-<br>
-<br>
-
 
 # Module 2: Analyze function and metabolic capabilities of bins with anvi-estimate-metabolism
 
