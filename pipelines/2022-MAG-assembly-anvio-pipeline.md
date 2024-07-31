@@ -1865,7 +1865,6 @@ http://merenlab.org/2016/06/22/anvio-tutorial-v2/
 Taxonomic analysis of MAGs in anvi'o:  
 https://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics  
 
-
 Let's begin! :D  
 Shown below are the analysis steps in cases where we want to import previously made bins from external tools.  
 
@@ -1973,18 +1972,9 @@ anvi-import-collection formatted_dastool_contigs2bins.tsv -p peat-merged-profile
 anvi-rename-bins -c peat-contigs.db -p peat-merged-profiles/PROFILE.db --collection-to-read peatTechReps --collection-to-write PeatTechReps --prefix PalsaMedium --report-file renamed-bins.txt --dry-run
 ```
 
-Ok cooooooool we've got our collection of bins INSIDE anvi'o, and we've done some analysis of the profiles bins: identified genes and their functional annotation, found SNVs, and looked at taxonomic estimates. Now let's apply some analysis to the bins themselves.  
+If all goes well, our collection of bins is now INSIDE anvi'o, and we've done some analysis of the profiles bins: identified genes and their functional annotation, found SNVs, and looked at taxonomic estimates. Now let's apply some analysis to the bins themselves.  
 
-Supposedly the code below gives relative taxons per bin info, but I kept getting an error msg re: the output file path vs file prefix. So, the code below generates a report of SCG taxonomy estimation, and also provides taxonomic information to the merged profiles and DB, so we will see a taxonomic layer to our anvi'o circos plot output.   
-
-``` {bash eval=FALSE}
-
-
-
-```
-
-
-Check out your estimated taxonomy per bin! :D :D :D  
+Check out your estimated taxonomy per bin:
 
 ``` {eval bash=FALSE}
 anvi-estimate-scg-taxonomy -c peat-contigs.db -p peat-merged-profiles/PROFILE.db --metagenome-mode --compute-scg-coverages --num-threads 16 --update-profile-db-with-taxonomy > tax-scg-est-per-sample.tsv
@@ -2025,7 +2015,14 @@ Note that anvi-summarize generates a whole bunch of .fasta files of your contigs
 
 --reformmat-contig-names will include bin name in contigs, and provide an old-to-new name conversion file  
 
---quick-summary is less complex. Also doesn't provide a snapshot of the circos plot :(  
+--quick-summary is less complex. Also doesn't provide a snapshot of the circos plot.
+
+Note that manual refinement is able to reduce contamination, but not increase completeness.
+
+Results: I was able to reduce the contamination of two of my four bins slightly, using manual curation. 
+
+<img src="https://github.com/user-attachments/assets/c0131872-7e28-4ccf-adf1-89bfcf572d12" align=center width=800 title="anvi-quick-summary of four DAS Tool bins after manual curation in anvi'o">
+
 
 
 # Appendix 1: X11-forwarding to use Pathway Tools 
