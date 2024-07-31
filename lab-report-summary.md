@@ -1,5 +1,5 @@
 
-The purpose of this report is to test and benchmark a MAG pipeline (2022-MAG-assembly-anvio-pipeline.md). The pipeline is a hybrid of tools and techniques described in a variety of sources, including BVCN, anvi'o, and MAVERIC (Sullivan lab, OSU). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples, and 2) statistics at each checkpoint, to help me develop a feel for MAG QC and troubleshooting.
+The purpose of this report is to benchmark a MAG pipeline (2022-MAG-assembly-anvio-pipeline.md). The pipeline is a hybrid of a variety of sources, including BVCN, anvi'o, and MAVERIC (Sullivan lab, OSU). Two criteria were used for benchmarking: 1) comparison with results from published tutorials for these samples, and 2) statistics at each checkpoint, to help me develop a feel for MAG QC and troubleshooting.
 
 # Summary
 
@@ -22,133 +22,122 @@ Three technical replicates (2010, 2011, 2012) of a peat bog sample were chosen f
 
 # Results per module: 
 
-###### MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools  
-Illumina adapters trimmed, as well as sequence with low entropy=0.95 (a proxy for low quality) and minimum ave quality=8.  Spikeins (phiX) were removed.
+###### MODULE 1: Read Trimming and Quality Filtering using BBtools  
+Illumina adapters were trimmed, and reads with low entropy=0.95 (a proxy for low quality) and minimum ave quality=8 were removed.  Spike-ins (phiX) were removed.
 Cleaning by optical cell tile (Illumina) was not performed.  
 Removed sequences were diverted to a separate file rather than deleted.  
+86% of reads (24.2 million) remained after qualtrimming.
 
 ###### MODULE 2: Visualizing Read Quality with FastQC  
  Qualtrimmed data were compared with removed sequences using FastQC. 
- As expected, sequence quality of qualtrimmed was of good quality across all metrics, 
- whereas quality of removed sequence was lower and sometimes poor.  
+ As expected, sequence quality of qualtrimmed reads was of good quality across all metrics, 
+ whereas quality of removed sequence was lower and sometimes poor.  Some of the sequences show higher-than-average GC content, which is typical of certain bacterial genera, such as Actinobacteria.
 
- see MAG-pipeline-public/output-files/20120700-P#M_multiqc_report.html file for more details.
- <br>
+
  <img src = "https://github.com/user-attachments/assets/2314036b-6734-4c5a-a3ef-2d2686b01093" width=400 align=center alt="" title="fastqc overrepresented sequences plot"/>
+ 
+     /MAG-pipeline-public/output-files/20120700-P#M_multiqc_report.html
  <br>
-Some of the sequences show higher-than-average GC content, which is typical of certain bacterial genera, such as Actinobacteria.
 
-(28.2 million reads before qc trimming; 24.2 million reads @ 100 bp after qc trimming). 
+
  
 ###### MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBDuk
 Table of classifications provided by sourmash by kmer comparison to GenBank's representative genomes, k31, LCA database.
-see file MAG-pipeline-public/output-files/peat_taxonomy_summary.csv
+
+     /MAG-pipeline-public/output-files/peat_taxonomy_summary.csv
 
 ###### MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts
 
-Classified reads were placed into taxonomy in Krona using GTDB taxonomy file.
+Reads were placed into taxonomy in Krona using GTDB taxonomy file.
 Unassembled reads are 91% unclassified at this point (small plot). 
-The remaining 9% include Acidobacteria and Actinobacteria (large plot). Sourmash detected strains that were characterized in the 2018 study ("Palsa" strains), which is nice confirmation that the sourmash database used is up-to-date, and the pipeline is correctly identifying some of the reads in these samples. 
-
- <img src = "https://github.com/user-attachments/assets/1f57d127-9333-4723-8b3c-c9f978ade635" width=800 align=center alt="" title="krona plot of 9% of sequences that were classified"/>
+The remaining 9% include Acidobacteria and Actinobacteria (large plot). Sourmash detected strains that were characterized in the 2018 study ("Palsa" strains). 
 
  <img src = "https://github.com/user-attachments/assets/e5d700e2-f4c5-4118-a8a4-d28c129cd3fd" width=200 align=center alt="" title="krona plot showing 91% of unassembled reads are unclassified"/>
+<br>
+<br>
+ <img src = "https://github.com/user-attachments/assets/1f57d127-9333-4723-8b3c-c9f978ade635" width=800 align=center alt="" title="krona plot of 9% of sequences that were classified"/>
+ 
+     /MAG-pipeline-public/output-files/peatPM2012-krona-all.html
 
 ###### MODULE 5: Co-assembly with MegaHIT and metaSPAdes
 
+Read error-correction with SPAdes resulted in 17.8 million corrected reads, retaining 74% of the qualtrimmed reads, or 63% of the downloaded data. 
 
-metaSPAdes co-assembly of one library:
+For read depth normalization to aid co-assembly, BBnorm output indicated an average kmer depth of 4.5, with standard dev = 35, and a median read depth of 3.  
 
-<img src="https://github.com/user-attachments/assets/a1d3f37a-23f2-4652-94f3-197209a00833" width=200 align=center title="metaSPAdes assembly of single paired-end library with singletons, K33"/>
+Co-assembly was first performed on the three libraries with metaSPAdes. 
+   
+I visually examined the maximum contig sizes and number of contigs for a K21, K33, and K55 from the metaSPAdes stats summaries, and there didn't seem to be too much difference between K33 and K55, which K21 having much smaller contig sizes. I selected K33 for moving forward with the pipeline.
+
+
+<img src="https://github.com/user-attachments/assets/a1d3f37a-23f2-4652-94f3-197209a00833" width=600 align=center title="metaSPAdes assembly of single paired-end library with singletons, K33"/>  
+<br>
+<br>
+
+MegaHIT automatically created assemblies with a range of kmer lengths from K27 to K107. An article benchmarking co-assembly of marine seq libraries suggested K55 or so. Co-assembly of three error-corrected and normalized libraries took about 40 minutes with MegaHIT.
+
 
 
 Insert table summarizing metaSPAdes co-assembly stats here. 
 
-<img src="https://github.com/user-attachments/assets/67ba1d91-c11c-44a2-ad1a-8245c8f562db" width=200 align=center title="Bowtie2 alignment of metaSPAdes co-assembly, K33" />
 
-Using Bowtie2, there is a 34% alignment rate of metaSPAdes K33 co-assembly. 14.6 million reads were aligned. 
+BVCN, my primary tutorial for MAG pipeline, recommended MegaHIT; however, it seems to have performed poorly compared to metaSPAdes for co-assembly of these three libraries, with fewer assebmled contigs and smaller contig sizes (see table). It is likely that a better co-assembly with MegaHIT is possible with these samples, but for now, proceed with metaSPAdes. 
 
-<img src="https://github.com/user-attachments/assets/cd508e3f-282b-4068-aeae-6a2b581069cb" width=200 align=center title="BBWrap alignment of metaSPAdes co-assembly, K33" />
-Using BBMap, 15 M reads were aligned to metaSPAdes K33 co-assembly.
 
-The BBnorm output also indicated an average kmer depth of 4.5, with st dev = 35. Median read depth of 3.
-Error correction using metaSPAdes; read depth normalization using BBNorm (tadpole), co-assembly of the three libraries with MEGAHIT, and calculation of assembly statistics. 
-Megahit assebly with kmer of length 33 was chosen in absence of better suggestions as a compromise between more reads assembled (shorter kmer) and larger contigs (
-longer kmer). 
-Co-assembly of three error-corrected and normalized libraries took about 40 minutes.
-
-I visually examined the maximum contig sizes and number of contigs for a K21, K33, and K55 from the stats summaries, and there didn't seem to be too much difference between K33 and K55, which K21 having much smaller contig sizes. I selected K33 for moving forward with the pipeline.
-Unfortunately looks like I did not save the assembly stats file. 
 It is recommended to view the deBruijn graphs of the assemblies; however, the recommended software for this has been deprecated since 2022 with no obvious alternatives. 
 
-MegaHIT made assemblies from K27 to K107. An article benchmarking co-assembly of marine seq libraries suggested K55 or so. 
-megahit assembly: 8605 contigs, total 25065139 bp, min 1000 bp, max 365382 bp, avg 2912 bp, N50 3604 bp
-I'll pick k57 since I read somewhere that the best assemblies are between 50 and 60 for metagenomes. 
-#contigs   #bp          #N50  L50   
-8605    25065139    1139    3604
 
 ###### MODULE 6: Read Mapping and Alignments using BBWrap
 
-But this time, it attempted to align 28.2 million reads, most of which were detected as paired reads (14.2 million pairs). 
-But, only 13% of read pairs aligned concordantly (with expected FR orientation and distance between reads that would occur from Illumina paired-end sequence library protocol). 
-
-Used BBMap (via BBwrap) to index contigs, align reads, and index sorted aligned contigs. 
-It looks like I deleted these files too, but StOut reported acceptable error rate ( <10%) for ave library read lengths (~ 100bp).
-If I recall correctly, average read depth was one read, which makes sense considering the high genetic diversity and low sequencing depth of these libraries. 
-
-When I used Bowtie2 for read aligments, I got the same stats as for the published pipleine from Maverick lab: 
-<img src="https://github.com/user-attachments/assets/5887c2a3-a433-42ee-9089-1393abc393a1" size=150>
-
-Francisco lab reports xyz: my alignment shows xyz.
-
+Using Bowtie2, there is a 34% alignment rate of metaSPAdes K33 co-assembly. 14.6 million reads were aligned.  
+<br>
+<img src="https://github.com/user-attachments/assets/67ba1d91-c11c-44a2-ad1a-8245c8f562db" width=600 align=center title="Bowtie2 alignment of metaSPAdes co-assembly, K33" />  
+<br>
+<br>
+Using BBMap, 15 M reads were aligned to metaSPAdes K33 co-assembly.  
+<br>
+<img src="https://github.com/user-attachments/assets/cd508e3f-282b-4068-aeae-6a2b581069cb" width=600 align=center title="BBWrap alignment of metaSPAdes co-assembly, K33" />  
 
 As expected the coverage % per contig is very high (98-100%). 
 Percent reads mapped between 3% and 20%. I think that's pretty normal since the ref seq is de-novo metagenomic assembly from low seq depth and high diversity. 
 
 ###### MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool
 
-<img src="https://github.com/user-attachments/assets/490ef2dd-d4e6-4772-bbdf-31411ce88c8a" width=200 align=center title="My MetaBat bins from metaSPAdes K33 co-assembly" >
+Binning was performed using MaxBin2, MetaBAT2, and BinSanity. Bins were optimized with DAS tool. Concoct, a fourth binner, was unavailable on the OS used for this analysis.  
+MaxBin2: Total of 6 bins; the most complete were bin 2 (58%) and bin 5 (59%).  
+BinSanity: 5 refined bins, in addition to a handful of low-completion bins. 
+MetaBat2 produced 5 bins. 
 
-
-<img src="https://github.com/user-attachments/assets/e50e9275-83ac-49b4-9c9f-8bc764287e39" width=200 align=center title="MAVERIC MetaBat bins from SPAdes assembly of single peat library" >
-
-
-<img src="https://github.com/user-attachments/assets/1a02e63a-84f7-4751-abf0-2a8f1509783a" width=200 align=center title="Second half of Maveric MetaBat bins" >
-
-So, it looks like the bins 1, 2, 5, and 7 in the pipeline output, (they all have the same #genomes, #markers, and # marker sets) got combined in my output into just three bins (3, 4, 5). 
-
-
-Binning was performed using MaxBin2, MetaBAT2, BinSanity. Bins were optimized with DAS tool. Concoct, a fourth binner, was unavailable on the OS used for this analysis. 
-MaxBin2: Total of 6 bins; themost complete were bin 2 (58%) and bin 5 (59%).  
-MetaBat produced 5 bins. 
-BinSanity: 5 refined bins, in addition to and handful of low-completion bins. 
-
-The BinSanity and MaxBin outputs both show an Acidobacteria bin with high completeness (83%) but significant contamination (51%). MetaBat's Acidobacteria bin shows lower completion (58%) with no contamination.
+The BinSanity and MaxBin outputs both show an Actinobacteria bin with high completeness (83%) but significant contamination (51%). MetaBat's Actinobacteria bin shows lower completion (58%) with no contamination.
 
 DASTool performs bin optimization and dereplication, aided by functional annotiation using Prodigal, followed with diamond to look for marker (SGC) genes.
 
-DAS Tool provided 6 bins, four of which were low-completion. Maveric provided three DAS tool bins that met with minimum criteria (not shown). 
+DAS Tool provided 4 bins, which is a similar outcome to the MAVERIC pipeline, which provided three DAS tool bins that met with minimum criteria (not shown). 
 
-<img src="https://github.com/user-attachments/assets/729c53fd-ed48-4a4f-ba41-122c104de120" width=200 align=center title="My DAStool output">
-
-
+<img src="https://github.com/user-attachments/assets/729c53fd-ed48-4a4f-ba41-122c104de120" width=800 align=center title="DAStool output for this pipeline">
 
 ###### MODULE 8: Bin Evaluation with CheckM
 
-Comparing my CheckM output with the checkM from published assembly of a single library:
+Advice from bioinformaticians via the BVCN Slack channel recommended co-assembly of technical replicates for complex samples like peat, in order to potentially provide more data for higher % completion of predicted genomes. However, they also indicated that single-library co-assemblies can be useful for the bin refinement step to reduce bin contamination. 
 
-<img src="https://github.com/user-attachments/assets/0939e3f0-41c2-44b4-82f2-6d50723e5e1c" width=200 align=center title="Maveric checkM for metaBat2 bins from single library">
+The tables below show the checkM results from the MetaBat2 binning results for metaSPAdes co-assembly of three libraries (top; this study) with one library (bottom; <a href="https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html">MAVERIC</a> tutorial).  
+<br>
+<img src="https://github.com/user-attachments/assets/490ef2dd-d4e6-4772-bbdf-31411ce88c8a" width=800 align=center title="My MetaBat bins from metaSPAdes K33 co-assembly" >
 
-<img src="https://github.com/user-attachments/assets/ba43abc0-8ee0-4d38-8f32-47f1cbb02442" width=200 align=center title="My checkM for metabat bins co-assebly">
+<img src="https://github.com/user-attachments/assets/9508f9a8-8083-4de9-86f7-04a3d80a32d6" align=center width=800 title="MAVERIC MetaBAT bins from metaSPAdes co-assembly of single library">
 
+<br>
+TOP: CheckM of MetaBat2 binning from co-assembly of three libraries; this study.   
+
+BOTTOM: CheckM of MetaBat2 from co-assembly of one library.    
+
+In both cases the Actinobacteria bin had the highest completion % and lowest contamination. Interestingly, the MAVERIC co-assembly of a single library showed better checkM results than my co-assembly with three libraries. It could be that the three libraries are functioning less like technical replicates than as separate samples. Although they were collected at the same location and conditions in the study, they were collected at three consecutive years (2010, 2011, and 2012). 
 
 
 ###### MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
 
-6201 item(s) that were in the database, but were not in the input file, will not be described by any bin in the collection peatTechReps.
-think that just means that only some of  the contigs in the co-assembly ended up in bins, which is to be expected. But I wasn't sure about the "splits" name, so I'm putting this info here in case I need to refer to it laterrr.
 
-<img src="https://github.com/user-attachments/assets/7f96d69d-be4e-4a1a-a28f-4b867a9e6b08" width=300 align=center title="My anvio summary of peat co-assembly bins">
+<img src="https://github.com/user-attachments/assets/7f96d69d-be4e-4a1a-a28f-4b867a9e6b08" width=800 align=center title="My anvio summary of peat co-assembly bins">
 
 
 
