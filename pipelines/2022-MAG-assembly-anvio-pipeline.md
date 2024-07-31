@@ -56,6 +56,8 @@ Happy Belly Bioinformatics, a bioinformatics tutorial resource (Mike Lee, NASA)
 https://astrobiomike.github.io/genomics/metagen_anvio  
 Computational Genomics Manual (R. Edwards Lab, Flinders U, Australia)
 https://github.com/linsalrob/ComputationalGenomicsManual
+Metagenomics course instruction (J Banfield Lab, UC Berkeley)  
+https://jwestrob.github.io/ESPM_112L/  
 
 # Contents:
     MODULE 0: Setting up VM, Github repo, Conda Environments, and Data Download with FasterQ-dump
