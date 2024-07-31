@@ -1,7 +1,7 @@
 # Peat Metagenome assembly pipeline 2022
 ###### Rhys Allen 2022
 
-The purpose of this file is to develop a pipeline for assembling prokaryote genomes from shotgun metagenomic sequence MAGs). This pipeline uses from a Swedish arctic peat bog, <a href="https://www.nature.com/articles/s41586-018-0338-1">previously characterized</a> in BJ Woodcroft et al in 2018: "Genome-centric view of carbon processing in thawing permafrost.", Nature, 2018 Aug;560(7716):49-54.   
+The purpose of this file is to develop a pipeline for assembling prokaryote genomes from shotgun metagenomic sequence (MAGs). This pipeline uses from a Swedish arctic peat bog, <a href="https://www.nature.com/articles/s41586-018-0338-1">previously characterized</a> in BJ Woodcroft et al in 2018: "Genome-centric view of carbon processing in thawing permafrost.", Nature, 2018 Aug;560(7716):49-54.   
 
 The pipeline was developed primarily from two resources: <a href="https://biovcnet.github.io/">BVCN</a> and <a href="https://anvio.org/">anvi'o</a>, with additional pipeline info from <a href="https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html">MAVERIC</a> (the Sullivan lab; OSU). This is a work-in-progress that will undergo continuous updating with version control. 
 
@@ -26,7 +26,7 @@ The following additional files can be used to aid installation of software envir
 &emsp;-sourmash_x-platform_env.yml   
 &emsp;-vm-instance-GCE-protocol.txt  
 
-Previous versions of this pipeline (MAG-bvcn-pipeline-bbtools.md; MAG-bvcn-pipeline-kraken2.md) include detailed information on the following. 
+Previous versions of this pipeline (MAG-bvcn-pipeline-bbtools.md; MAG-bvcn-pipeline-kraken2.md) include detailed information on the following.  
 &emsp;-Fastq-dump  
 &emsp;-Trimmomatic  
 &emsp;-Bowtie2  
@@ -49,21 +49,21 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environme
 https://stackoverflow.com/questions/42352841/how-to-update-an-existing-conda-environment-with-a-yml-file  
 https://conda.io/projects/conda/en/latest/user-guide/install/linux.html  
 
-###### Additional Metagenome Tutorials  
+###### Additional Metagenome Tutorials:  
 SunBeam, a SnakeMake for automating MAGs (Bittinger Lab, U Penn)  
 https://sunbeam.readthedocs.io/en/stable/  
-Happy Belly Bioinformatics, a bioinformatics tutorial resource by Mike Lee, NASA  
+Happy Belly Bioinformatics, a bioinformatics tutorial resource (Mike Lee, NASA)
 https://astrobiomike.github.io/genomics/metagen_anvio  
 Computational Genomics Manual (R. Edwards Lab, Flinders U, Australia)
 https://github.com/linsalrob/ComputationalGenomicsManual
 
 # Contents:
     MODULE 0: Setting up VM, Github repo, Conda Environments, and Data Download with FasterQ-dump
-    MODULE 1: Read Trimming and Quality Filtering of K-mers using BBtools
+    MODULE 1: Read Trimming and Quality Filtering using BBtools
     MODULE 2: Visualizing Read Quality with FastQC  
     MODULE 3: Classification of Unassembled Reads by K-mer Sketch using Sourmash and BBduk
     MODULE 4: Visualizing Taxonomy of Unassembled Reads With Krona charts
-    MODULE 5: Genome (SPAdes) and Metagenome (Megahit) Assembly
+    MODULE 5: Library assembly and co-assembly with MegaHIT and metaSPAdes
     MODULE 6: Read Mapping and Alignments using BBWrap
     MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool
     MODULE 8: Bin Evaluation with CheckM
