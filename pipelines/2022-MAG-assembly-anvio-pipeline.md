@@ -52,10 +52,11 @@ https://conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
 ###### Additional Metagenome Tutorials  
 SunBeam, a SnakeMake for automating MAGs (Bittinger Lab, U Penn)  
-https://sunbeam.readthedocs.io/en/stable/
-Happy Belly Bioinformatics, a bioinformatics tutorial resource by Mike Lee, NASA
-https://astrobiomike.github.io/genomics/metagen_anvio
-
+https://sunbeam.readthedocs.io/en/stable/  
+Happy Belly Bioinformatics, a bioinformatics tutorial resource by Mike Lee, NASA  
+https://astrobiomike.github.io/genomics/metagen_anvio  
+Computational Genomics Manual (R. Edwards Lab, Flinders U, Australia)
+https://github.com/linsalrob/ComputationalGenomicsManual
 
 # Contents:
     MODULE 0: Setting up VM, Github repo, Conda Environments, and Data Download with FasterQ-dump
