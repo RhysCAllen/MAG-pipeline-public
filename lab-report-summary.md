@@ -98,7 +98,6 @@ Using BBMap, 15 M reads were aligned to metaSPAdes K33 co-assembly.
 <img src="https://github.com/user-attachments/assets/cd508e3f-282b-4068-aeae-6a2b581069cb" width=600 align=center title="BBWrap alignment of metaSPAdes co-assembly, K33" />  
 
 As expected the coverage % per contig is very high (98-100%). 
-Percent reads mapped between 3% and 20%. I think that's pretty normal since the ref seq is de-novo metagenomic assembly from low seq depth and high diversity. 
 
 ###### MODULE 7: Binning Metagenome-assembled Genomes using MetaBat, BinSanity, MaxBin, and DAS Tool
 
