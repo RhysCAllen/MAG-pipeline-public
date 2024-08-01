@@ -3,7 +3,7 @@ The purpose of this report is to benchmark a MAG pipeline (2022-MAG-assembly-anv
 
 # Summary
 
-Three technical replicates (years 2010, 2011, 2012) of a peat bog sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 million paired-end reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including _Acidobacteria_ and _Actinobacteria_, as well as study-specific strains (e.g. "Palsa"). Co-assembly of the three libraries with metaSPAdes appeared to work well, with K33 co-assembly comprising 1 million contigs with an N50 of 250k bp and an L50 of 322. Read alignments to these contigs using BBWrap showed average depth of 1 read, with 10% error. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 4 bins from DAS Tool. CheckM showed the highest quality MetaBat2 bin was classified as Actinobacteria, with 58% completeness and 0% contamination. Manually refining bins in anvi'o led to minor reduction of contamination for two of four bins, with the highest-quality bin having 97.18% completeness and 1.41% contamination. Future work includes using improving binning by single-library assembly with metaSPAdes, instead of co-assembly of these three replicates. Additional pipeline development includes troubleshooting the poor quality of MegaHIT co-assembly, and finding up-to-date software to view deBruijn graphs. 
+Three technical replicates (years 2010, 2011, 2012) of a peat bog sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 million paired-end reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including _Acidobacteria_ and _Actinobacteria_, as well as study-specific strains (e.g. "Palsa"). Co-assembly of the three libraries with metaSPAdes appeared to work well, with K33 co-assembly comprising 1 million contigs with an N50 of 250k bp and an L50 of 322. Read alignments to these contigs using BBWrap showed average depth of 1 read, with 10% error. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 4 bins from DAS Tool. CheckM showed the highest quality MetaBat2 bin was classified as _Actinobacteria_, with 58% completeness and 0% contamination. Manually refining bins in anvi'o led to minor reduction of contamination for two of four bins, with the highest-quality bin having 97.18% completeness and 1.41% contamination. Future work includes improving binning by single-library assembly instead of co-assembly of these three replicates. Additional pipeline development includes troubleshooting the poor quality of MegaHIT co-assembly, and finding up-to-date software to view deBruijn graphs. 
 
 
 <img src="https://github.com/user-attachments/assets/0fa9ba4b-cd85-4cb1-8a48-df6497206902" align=center width=600 title="Tracking DNA retention">
@@ -32,7 +32,7 @@ Removed sequences were diverted to a separate file rather than deleted.
 
 ###### MODULE 2: Visualizing Read Quality with FastQC  
  Qualtrimmed data were compared with removed sequences using FastQC. 
- As expected, sequence quality of qualtrimmed reads was of good quality across all metrics, 
+ As expected, qualtrimmed reads were of good quality across all metrics, 
  whereas quality of removed sequence was lower and sometimes poor.  Some of the sequences show higher-than-average GC content, which is typical of certain bacterial genera, such as Actinobacteria.
 
 
@@ -52,7 +52,7 @@ Table of classifications provided by sourmash by kmer comparison to GenBank's re
 
 Reads were placed into taxonomy in Krona using GTDB taxonomy file.
 Unassembled reads are 91% unclassified at this point (small plot). 
-The remaining 9% include Acidobacteria and Actinobacteria (large plot). Sourmash detected strains that were characterized in the 2018 study ("Palsa" strains). 
+The remaining 9% include _Acidobacteria_ and _Actinobacteria_ (large plot). Sourmash detected strains that were characterized in the 2018 study that published these samples ("Palsa" strains). 
 
  <img src = "https://github.com/user-attachments/assets/e5d700e2-f4c5-4118-a8a4-d28c129cd3fd" width=200 align=center alt="" title="krona plot showing 91% of unassembled reads are unclassified"/>
 <br>
@@ -107,11 +107,11 @@ MaxBin2: Total of 6 bins; the most complete were bin 2 (58%) and bin 5 (59%).
 BinSanity: 5 refined bins, in addition to a handful of low-completion bins. 
 MetaBat2 produced 5 bins. 
 
-The BinSanity and MaxBin outputs both show an Actinobacteria bin with high completeness (83%) but significant contamination (51%). MetaBat's Actinobacteria bin shows lower completion (58%) with no contamination.
+The BinSanity and MaxBin2 outputs both show an _Actinobacteria_ bin with high completeness (83%) but significant contamination (51%). MetaBat2's _Actinobacteria_ bin shows lower completion (58%) with no contamination.
 
 DASTool performs bin optimization and dereplication, aided by functional annotiation using Prodigal, followed with diamond to look for marker (SGC) genes.
 
-DAS Tool provided 4 bins, which is a similar outcome to the MAVERIC pipeline, which provided three DAS tool bins that met with minimum criteria (not shown). 
+DAS Tool provided 4 bins, which is a similar outcome to the MAVERIC pipeline, which provided three DAS Tool bins that met with minimum criteria (not shown). 
 
 <img src="https://github.com/user-attachments/assets/729c53fd-ed48-4a4f-ba41-122c104de120" width=800 align=center title="DAStool output for this pipeline">
 
@@ -130,7 +130,7 @@ TOP: CheckM of MetaBat2 binning from co-assembly of three libraries; this study.
 
 BOTTOM: CheckM of MetaBat2 from co-assembly of one library; MAVERIC tutorial.    
 
-In both pipelines, the Actinobacteria bin had the highest completion % and lowest contamination. Interestingly, the MAVERIC co-assembly of a single library showed better checkM results than my co-assembly with three libraries. It could be that the three libraries are functioning less like technical replicates than as separate samples. Although they were collected at the same location and conditions in the peat bog study, they were collected at three consecutive years (2010, 2011, and 2012). 
+In both pipelines, the _Actinobacteria_ bin had the highest completion % and lowest contamination %. Interestingly, the MAVERIC co-assembly of a single library showed better checkM results than my co-assembly with three libraries. It could be that the three libraries are functioning less like technical replicates than as separate samples. Although they were collected at the same location and conditions in the peat bog study, they were collected at three consecutive years (2010, 2011, and 2012). 
 
 
 ###### MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
