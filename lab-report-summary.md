@@ -3,7 +3,7 @@ The purpose of this report is to benchmark a MAG pipeline (2022-MAG-assembly-anv
 
 # Summary
 
-Three technical replicates (2010, 2011, 2012) of a peat bog sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 million paired-end reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). Co-assembly of the three libraries with metaSPAdes appeared to work well, with K33 co-assembly comprising 1 million contigs with an N50 of 250k bp and an L50 of 322. Read alignments to these contigs using BBWrap showed average depth of 1 read, with 10% error. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 4 bins from DAS Tool. CheckM showed the highest quality bin taxonomy was Actinobacteria, with 58% completeness and 0% contamination. Manually refining bins in anvi'o led to minor reduction of contamination for two of four bins, with the highest-quality bin having 97.18% completeness and 1.41% contamination. Further refinement of these bins includes using single-library assembly with metaSPAdes, instead of co-assembly of these three replicates. Additional pipeline development includes troubleshooting the poor quality of MegaHIT assembly. 
+Three technical replicates (years 2010, 2011, 2012) of a peat bog sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 million paired-end reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). Co-assembly of the three libraries with metaSPAdes appeared to work well, with K33 co-assembly comprising 1 million contigs with an N50 of 250k bp and an L50 of 322. Read alignments to these contigs using BBWrap showed average depth of 1 read, with 10% error. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 4 bins from DAS Tool. CheckM showed the highest quality MetaBat2 bin was classified as Actinobacteria, with 58% completeness and 0% contamination. Manually refining bins in anvi'o led to minor reduction of contamination for two of four bins, with the highest-quality bin having 97.18% completeness and 1.41% contamination. Further refinement of these bins includes using single-library assembly with metaSPAdes, instead of co-assembly of these three replicates. Additional pipeline development includes troubleshooting the poor quality of MegaHIT assembly, and finding software to view deBruijn graphs, since Bandage has been deprecated since 2022. 
 
 
 
@@ -76,13 +76,9 @@ I visually examined the maximum contig sizes and number of contigs for a K21, K3
 
 MegaHIT automatically created assemblies with a range of kmer lengths from K27 to K107. An article benchmarking co-assembly of marine seq libraries suggested K55 or so. Co-assembly of three error-corrected and normalized libraries took about 40 minutes with MegaHIT.
 
-
-
-Insert table summarizing metaSPAdes co-assembly stats here. 
-
-
 BVCN, my primary tutorial for MAG pipeline, recommended MegaHIT; however, it seems to have performed poorly compared to metaSPAdes for co-assembly of these three libraries, with fewer assebmled contigs and smaller contig sizes (see table). It is likely that a better co-assembly with MegaHIT is possible with these samples, but for now, proceed with metaSPAdes. 
 
+<img src="https://github.com/user-attachments/assets/221f237c-dc5b-4804-8325-e189bd4e8899" width=800 align=center title="metaSPAdes vs MegaHIT co-assembly of three libraries">
 
 It is recommended to view the deBruijn graphs of the assemblies; however, the recommended software for this has been deprecated since 2022 with no obvious alternatives. 
 
