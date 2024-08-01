@@ -78,7 +78,8 @@ MegaHIT automatically created assemblies with a range of kmer lengths from K27 t
 
 BVCN, my primary tutorial for MAG pipeline, recommended MegaHIT; however, it seems to have performed poorly compared to metaSPAdes for co-assembly of these three libraries, with fewer assebmled contigs and smaller contig sizes (see table). It is likely that a better co-assembly with MegaHIT is possible with these samples, but for now, proceed with metaSPAdes. 
 
-<img src="https://github.com/user-attachments/assets/221f237c-dc5b-4804-8325-e189bd4e8899" width=800 align=center title="metaSPAdes vs MegaHIT co-assembly of three libraries">
+<img src="https://github.com/user-attachments/assets/221f237c-dc5b-4804-8325-e189bd4e8899" width=400 align=center title="metaSPAdes vs MegaHIT co-assembly of three libraries">  
+<br>
 
 It is recommended to view the deBruijn graphs of the assemblies; however, the recommended software for this has been deprecated since 2022 with no obvious alternatives. 
 
