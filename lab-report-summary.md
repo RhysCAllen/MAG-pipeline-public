@@ -3,7 +3,7 @@ The purpose of this report is to benchmark a MAG pipeline (2022-MAG-assembly-anv
 
 # Summary
 
-Three technical replicates (2010, 2011, 2012) of a peat bog sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 million paired-end reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). MagaHit co-assembly showed best results with kmer length=55, selected from a range of K21-K99, with N50 of 75kb and L50 of 3. Total assembled x million reads, or y% of qualtrimmed reads. Read alignments to contigs using BBWrap showed average depth of 1 read, 10% error and some other read alignment stat, and x% of of normalized reads aligned. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 6 bins, including 4 low-quality bins from DAS Tool. CheckM says this. Manually refining bins in anvi'o led to xyz. Classification of bins in anvi'o indicate xyz, as bins had duplication of single copy markers A and B. Current Bins most likely include Genus species and Genus species, which is consistent with published analysis of these libraries. Further refinement of these bins includes using single-library assembly with metaSPAdes, instead of co-assembly of these three replicates. 
+Three technical replicates (2010, 2011, 2012) of a peat bog sample were chosen from a previously published study (BJ Woodcroft et al, 2018). Illumina HiSeq 2500 libraries (100 bp paired reads, ave insert size ~350 bp) comprising 11.5 GBp of sequence were downloaded.  After qualtrimming with bbtools, 86% or 24.2 million paired-end reads were retained, including singletons.  Classification of unassembled reads by sourmash showed 91% unclassified, with 9% including Acidobacteria and Actinobacteria, as well as study-specific strains (e.g. "Palsa"). Co-assembly of the three libraries with metaSPAdes appeared to work well, with K33 co-assembly comprising 1 million contigs with an N50 of 250k bp and an L50 of 322. Read alignments to these contigs using BBWrap showed average depth of 1 read, with 10% error and 84% of error-corrected reads aligned. Indexed and sorted alignment files were binned and dereplicated, for a consensus dereplicated binning of 4 bins from DAS Tool. CheckM showed . Manually refining bins in anvi'o led to minor reduction of contamination for two of four bins. Further refinement of these bins includes using single-library assembly with metaSPAdes, instead of co-assembly of these three replicates. 
 
 
 
@@ -136,10 +136,11 @@ In both cases the Actinobacteria bin had the highest completion % and lowest con
 
 ###### MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
 
+I was able to import into anvi'o the four bins I curated from DAS Tool. Manual curation of bins can help fix contamination issues, but not assembly issues.
+
+I was able to slightly improve the contamination of 3 of the 4 bins with manual curation.
 
 <img src="https://github.com/user-attachments/assets/7f96d69d-be4e-4a1a-a28f-4b867a9e6b08" width=800 align=center title="My anvio summary of peat co-assembly bins">
-
-
 
 
 
