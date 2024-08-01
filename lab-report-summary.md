@@ -119,7 +119,7 @@ DAS Tool provided 4 bins, which is a similar outcome to the MAVERIC pipeline, wh
 
 Advice from bioinformaticians via the BVCN Slack channel recommended co-assembly of technical replicates for complex samples like peat, in order to potentially provide more data for higher % completion of predicted genomes. However, they also indicated that single-library co-assemblies can be useful for the bin refinement step to reduce bin contamination. 
 
-The tables below show the checkM results from the MetaBat2 binning results for metaSPAdes co-assembly of three libraries (top; this study) with one library (bottom; <a href="https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html">MAVERIC</a> tutorial).  
+The tables below show the checkM results from the MetaBat2 binning results for metaSPAdes co-assembly of three libraries (top; this study) with one library (bottom; MAVERIC tutorial).  
 <br>
 <img src="https://github.com/user-attachments/assets/490ef2dd-d4e6-4772-bbdf-31411ce88c8a" width=800 align=center title="My MetaBat bins from metaSPAdes K33 co-assembly" >
 
@@ -128,9 +128,9 @@ The tables below show the checkM results from the MetaBat2 binning results for m
 <br>
 TOP: CheckM of MetaBat2 binning from co-assembly of three libraries; this study.   
 
-BOTTOM: CheckM of MetaBat2 from co-assembly of one library.    
+BOTTOM: CheckM of MetaBat2 from co-assembly of one library; MAVERIC tutorial.    
 
-In both cases the Actinobacteria bin had the highest completion % and lowest contamination. Interestingly, the MAVERIC co-assembly of a single library showed better checkM results than my co-assembly with three libraries. It could be that the three libraries are functioning less like technical replicates than as separate samples. Although they were collected at the same location and conditions in the study, they were collected at three consecutive years (2010, 2011, and 2012). 
+In both pipelines, the Actinobacteria bin had the highest completion % and lowest contamination. Interestingly, the MAVERIC co-assembly of a single library showed better checkM results than my co-assembly with three libraries. It could be that the three libraries are functioning less like technical replicates than as separate samples. Although they were collected at the same location and conditions in the peat bog study, they were collected at three consecutive years (2010, 2011, and 2012). 
 
 
 ###### MODULE 9: Refinement, Visualization, and Analysis of MAG bins using anvi'o 
