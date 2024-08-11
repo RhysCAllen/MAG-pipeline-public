@@ -1,5 +1,7 @@
 
-The purpose of this report is to benchmark a MAG pipeline (2022-MAG-assembly-anvio-pipeline.md). The pipeline is a hybrid of a variety of sources, including BVCN and anvi'o. Two criteria were used for benchmarking: 1) comparison with results from a published tutorial called <a href="https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html">MAVERIC</a> (Sullivan lab, OSU) for one of these three samples; and 2) statistics at each checkpoint, to help me develop a feel for MAG QC and troubleshooting.
+The purpose of this report is to benchmark a MAG pipeline (2022-MAG-assembly-anvio-pipeline.md). The pipeline is a hybrid of a variety of sources, including <a href="https://biovcnet.github.io/">BVCN</a> and <a href="https://anvio.org/">anvi'o</a>. The pipeline uses sequence libraries collected from a Swedish arctic peat bog, <a href="https://www.nature.com/articles/s41586-018-0338-1">previously characterized</a> in BJ Woodcroft et al in 2018: "Genome-centric view of carbon processing in thawing permafrost."  Two criteria were used for benchmarking: 1) comparison with results from a published tutorial for one of the three peat sample libraries, called <a href="https://maveric-informatics.readthedocs.io/en/latest/Processing-a-Microbial-Metagenome.html">MAVERIC</a> (Sullivan lab, OSU); and 2) statistics at each checkpoint, to help me develop a feel for MAG QC and troubleshooting.
+
+
 
 # Summary
 
