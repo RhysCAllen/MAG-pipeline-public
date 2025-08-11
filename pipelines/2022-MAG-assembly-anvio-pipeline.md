@@ -73,7 +73,7 @@ https://jwestrob.github.io/ESPM_112L/
     APPENDIX: X11-forwarding to use Pathway Tools
 
 ##### Tool Links:
-bbtools: https://jgi.doe.gov/data-and-tools/bbtools/  
+bbtools: https://archive.jgi.doe.gov/data-and-tools/software-tools/bbtools/  
 FastQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/  
 MultiQC: https://multiqc.info/   
 sourmash: https://sourmash.readthedocs.io/en/latest/)  
