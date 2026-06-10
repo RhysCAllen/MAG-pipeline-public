@@ -73,7 +73,7 @@ https://jwestrob.github.io/ESPM_112L/
     APPENDIX: X11-forwarding to use Pathway Tools
 
 ##### Tool Links:
-bbtools: https://archive.jgi.doe.gov/data-and-tools/software-tools/bbtools/  
+bbtools: https://archive.jgi.doe.gov/data-and-tools/software-tools/bbtools/  or https://bbmap.org/  
 FastQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/  
 MultiQC: https://multiqc.info/   
 sourmash: https://sourmash.readthedocs.io/en/latest/)  
@@ -492,6 +492,10 @@ BBDuk is strictly deterministic on a per-read basis, however it does by default 
 
 Note that clumpify.sh only works on raw sequence data; it will throw an error if it's run on SRA downloads which are presumably missing the tiling info from the files.
 
+Update June 2026: an updated version of bbduk qualtrimming slurm files can be found in the following repo:
+coding-util-files/bbduk-qualtrimming
+
+See https://bbmap.org/docs/guides/PreprocessingGuide.md and https://bbmap.org/
 
 ``` {bash eval=FALSE}
 for prefix in `ls *_R1_*.fastq.gz | cut -f1 -d'_' | sort -u`; do 
@@ -502,6 +506,7 @@ for prefix in `ls *_R1_*.fastq.gz | cut -f1 -d'_' | sort -u`; do
   R2=( ${prefix}*_R2_*.gz )
   
   # Remove optical duplicates
+    # note deduplication and removing optical 
   # This means they are Illumina reads within a certain distance on the flowcell.
   clumpify.sh in1=$R1 in2=$R2 out=clumped.fq.gz dedupe optical ow=t
 
